@@ -1,0 +1,1 @@
+const{PrismaClient}=require("@prisma/client");const p=new PrismaClient();p.order.findMany({take:5,orderBy:{createdAt:"desc"}}).then(d=>{console.log("Pedidos:",d.length);d.forEach(o=>console.log(o.orderNumber,"|",o.customerName,"|",o.total,"|",o.status,"|",o.paymentMethod))}).catch(e=>console.log("ERRO:",e.message)).finally(()=>p.$disconnect())
